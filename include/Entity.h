@@ -12,6 +12,7 @@ class Entity {
     ~Entity() = default;
 
     const std::string get_tag() const;
+    bool alive() const;
   private:
     const unsigned long long id;
     const std::string tag;

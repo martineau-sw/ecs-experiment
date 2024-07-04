@@ -20,6 +20,14 @@ void EntityManager::update() {
     entity_map[e->get_tag()].push_back(e);
   });
   add_buffer.clear();
+  entities.erase(std::remove_if(entities.begin(), entities.end(), [this] (auto e) {
+    return !e->alive();
+  }), entities.end());
+  std::for_each(entity_map.begin(), entity_map.end(), [this] (auto& pair) {
+    pair.second.erase(std::remove_if(pair.second.begin(), pair.second.end(), [this] (auto e) {
+      return !e->alive();
+    }), pair.second.end());
+  });
 }
 
 } // namespace ecs
