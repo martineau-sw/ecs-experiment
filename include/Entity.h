@@ -1,17 +1,22 @@
 #ifndef ECS_ENTITY_H_
 #define ECS_ENTITY_H_
 
+#include <string>
+
 namespace martineausw {
 namespace ecs {
 
 class Entity {
   public:
-    Entity();
-    ~Entity();
+    Entity(std::string, unsigned long long);
+    ~Entity() = default;
   private:
+    const unsigned long long id;
+    const std::string tag;
+    bool is_alive = true;
 };
 
-} //namespace ecs
-} //namespace martineausw
+} // namespace ecs
+} // namespace martineausw
 
 #endif

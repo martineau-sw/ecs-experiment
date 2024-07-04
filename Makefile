@@ -1,8 +1,9 @@
 DEBUG ?= 1
 ENABLE_WARNINGS ?= 1
 
-INCLUDE_DIR = include
+INCLUDE_DIR = include 
 SOURCE_DIR = src
+COMPONENT_DIR = $(SOURCE_DIR)/components
 BUILD_DIR = build
 EXECUTABLE_NAME = main
 CXX_SOURCES = $(wildcard $(SOURCE_DIR)/*.cc) 
@@ -12,7 +13,7 @@ CXX = g++
 CXX_STANDARD = c++17
 CXXFLAGS = $(CXX_WARNINGS) -std=$(CXX_STANDARD)
 CPPFLAGS = -I $(INCLUDE_DIR)
-LDFLAGS =  -lncurses
+LDFLAGS = 
 
 
 ifeq (%(ENABLE_WARNINGS), 1)
@@ -55,6 +56,9 @@ clean:
 # $^ - name of all prerequisites
 
 $(BUILD_DIR)/%.o: $(SOURCE_DIR)/%.cc
+	$(CXX_COMPILER_CALL) -c $< -o $@
+
+$(BUILD_DIR)/%.o: $(COMPONENT_DIR)/%.cc
 	$(CXX_COMPILER_CALL) -c $< -o $@
 
 .PHONY: init build execute clean
