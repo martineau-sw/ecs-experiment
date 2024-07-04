@@ -10,6 +10,8 @@ class Entity {
   public:
     Entity(std::string, unsigned long long);
     ~Entity() = default;
+
+    const std::string get_tag() const;
   private:
     const unsigned long long id;
     const std::string tag;

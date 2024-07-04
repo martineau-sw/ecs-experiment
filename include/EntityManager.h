@@ -19,8 +19,11 @@ class EntityManager {
     std::shared_ptr<martineausw::ecs::Entity> add_entity(const std::string &);
     EntityVec& get_entities();
     EntityVec& get_entities(const std::string &);
+
+    void update();
   private:
     EntityVec entities;
+    EntityVec add_buffer;
     EntityMap entity_map;
     unsigned long long total_entities;
 };
