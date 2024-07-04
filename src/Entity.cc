@@ -9,7 +9,7 @@ Entity::Entity(std::string tag, unsigned long long id)
   : tag { tag }, id { id } {
 }
 
-const std::string Entity::get_tag() const {
+const std::string &Entity::get_tag() const {
   return tag;
 }
 
