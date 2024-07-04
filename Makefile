@@ -57,7 +57,4 @@ clean:
 $(BUILD_DIR)/%.o: $(SOURCE_DIR)/%.cc
 	$(CXX_COMPILER_CALL) -c $< -o $@
 
-$(BUILD_DIR)/%.o: $(SOURCE_DIR)/%.cpp
-	$(CXX_COMPILER_CALL) -c $< -o $@
-
 .PHONY: init build execute clean
